@@ -1,4 +1,4 @@
-// Prime number
+#  Prime number
 
 
 n=int(input())
