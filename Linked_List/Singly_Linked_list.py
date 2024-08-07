@@ -144,8 +144,63 @@ def print_linked_List(head):
     print("None")
 
 
+# Delete the alternate node
+def delete_alternate_nodes(head):
+    prev = head
+    now = head.next
+    while now and prev:
+        prev.next = now.next
+        now = None
+        prev = prev.next
+        if prev != None:
+            now = prev.next
+    return head
+
+
+# Remove the Kth Node
+def remove_kth_Node(head, k):
+    cur = head
+    count = 1
+    while cur:
+        count += 1
+        if k == count:
+            cur.next = cur.next.next
+            count = 1
+        cur = cur.next
+    return head
+
+
+# Remove Duplicates
+def remove_Duplicate(head):
+    prev = head
+    now = head.next
+
+    while now:
+        if prev.data == now.data:
+            prev.next = now.next
+            now = now.next
+        else:
+            prev = prev.next
+            now = now.next
+    return head
+
+
+# Add Number Linked Lists
+# def number_linked_list(head):
+#     cur = head
+#     sum = 0
+#     while cur:
+#         sum = sum + cur.data
+#         cur = cur.next
+#     Total = sum * 2
+#     while Total > 0:
+#         mod = mod % 10
+#         insert_at_beginning()
+#     return sum
+
+
 node4 = insert_at_beginning(40, None)
-node3 = insert_at_beginning(30, node4)
+node3 = insert_at_beginning(25, node4)
 node2 = insert_at_beginning(20, node3)
 node1 = insert_at_beginning(10, node2)
 
@@ -175,4 +230,11 @@ print_linked_List(node1)
 # print_linked_List(middle_first(node1))
 
 
-print_linked_List(add_1_to_lastNode(node1))
+# print_linked_List(delete_alternate_nodes(node1))
+
+# print(number_linked_list(node1))
+
+# print_linked_List(remove_Duplicate(node1))
+
+
+print_linked_List(remove_kth_Node(node1, 2))
