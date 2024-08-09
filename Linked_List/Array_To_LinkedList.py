@@ -5,8 +5,10 @@ class Node:
         self.next = None
 
 
-a = [10, 15, 12, 13, 20, 14]
+# a = [10, 15, 12, 13, 20, 14]
+# a = [2, 2, 2, 2, 2]
 # a = [1, 2, 3, 4, 5, 6]
+a = [2, 4, 7, 8, 9]
 # a = [1, 2, 1, 1, 2, 1]
 # a = [590, 620, 80]
 # a = [19, 28, 37, 46, 55]
@@ -175,3 +177,39 @@ def swap_node(head, x, y):
             continue
     temp = i
     i.next = j.next
+
+
+# Remove Duplicates from a Sorted Linked List
+def remove_duplicates_from_sorted_linkedList(head):
+    cur = head
+    while cur and cur.next:
+        if cur.data == cur.next.data:
+            cur.next = cur.next.next
+        else:
+            cur = cur.next
+    return head
+
+
+# printLinkedList(remove_duplicates_from_sorted_linkedList(head))
+
+
+# Rotate a Linked List
+def rotate_linked_list(head, k):
+    cur = head
+    count = 1
+    while cur:
+        if count == k:
+            head2 = cur.next
+            cur.next = None
+        else:
+            count += 1
+        cur = cur.next
+    new_cur = head2
+    while new_cur.next:
+        new_cur = new_cur.next
+    new_cur.next = head
+    head = new_cur
+    return head2
+
+
+printLinkedList(rotate_linked_list(head, 3))
