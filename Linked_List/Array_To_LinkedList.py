@@ -8,7 +8,8 @@ class Node:
 # a = [10, 15, 12, 13, 20, 14]
 # a = [2, 2, 2, 2, 2]
 # a = [1, 2, 3, 4, 5, 6]
-a = [2, 4, 7, 8, 9]
+# a = [2, 4, 7, 8, 9]
+a = [23, 28, 28, 35, 49, 49, 53, 53]
 # a = [1, 2, 1, 1, 2, 1]
 # a = [590, 620, 80]
 # a = [19, 28, 37, 46, 55]
@@ -212,4 +213,40 @@ def rotate_linked_list(head, k):
     return head2
 
 
-printLinkedList(rotate_linked_list(head, 3))
+# printLinkedList(rotate_linked_list(head, 3))
+
+
+# Remove duplicates from an unsorted linked list
+def remove_duplicate_from_unsorted_linkedList(head):
+    cur = head
+    a = set()
+    a.add(cur.data)
+    while cur.next:
+        if cur.next.data in a:
+            cur.next = cur.next.next
+        else:
+            a.add(cur.next.data)
+            cur = cur.next
+    return head
+
+
+# Remove duplicates from an unsorted linked list
+# printLinkedList(remove_duplicate_from_unsorted_linkedList(head))
+
+
+# Remove all occurences of duplicates in a linked list
+def removeAll_duplicate_from_sorted_linkedList(head):
+    cur = head
+    a = set()
+    a.add(cur.data)
+    while cur.next:
+        if cur.next.data in a:
+            cur.next = cur.next.next
+        else:
+            a.add(cur.next.data)
+            cur = cur.next
+    return head
+
+
+# Remove all occurences of duplicates in a linked list
+printLinkedList(removeAll_duplicate_from_sorted_linkedList(head))
