@@ -7,14 +7,17 @@ class Node:
 
 # a = [10, 15, 12, 13, 20, 14]
 # a = [2, 2, 2, 2, 2]
-# a = [1, 2, 3, 4, 5, 6]
+# a = [1, 2, 3, 4, 5]
+a = [1, 3, 4]
 # a = [2, 4, 7, 8, 9]
-a = [23, 28, 28, 35, 49, 49, 53, 53]
+# a = [9, 1, 9, 3, 9, 5, 7, 9, 2, 9]
+# a = [23, 28, 28, 35, 49, 49, 53, 53]
 # a = [1, 2, 1, 1, 2, 1]
 # a = [590, 620, 80]
 # a = [19, 28, 37, 46, 55]
 # a = [1, 2, 4]
 # a = [728, 279, 868, 363, 966, 212, 111, 329, 859]
+# a = [25, 36, 47, 58, 69, 80]
 
 
 def returnNodes():
@@ -249,4 +252,70 @@ def removeAll_duplicate_from_sorted_linkedList(head):
 
 
 # Remove all occurences of duplicates in a linked list
-printLinkedList(removeAll_duplicate_from_sorted_linkedList(head))
+# printLinkedList(removeAll_duplicate_from_sorted_linkedList(head))
+
+
+# Insert in a Sorted List
+def insert_in_sorted_list(head, k):
+    cur = head
+    new = Node(k)
+    if k < head.data:
+        new.next = head
+        return new
+    else:
+        while cur.next and cur.next.data < k:
+            cur = cur.next
+        new.next = cur.next
+        cur.next = new
+        return head
+
+
+# printLinkedList(insert_in_sorted_list(head, 70))
+
+
+# Delete Middle of Linked List
+
+
+def delete_middle_elem(head):
+    # if head.next == None:
+    #     return None
+
+    # slow = head
+    # fast = head.next.next.next
+    # while fast.next:
+    #     slow = slow.next
+    #     fast = fast.next
+    # slow.next = slow.next.next
+    # return head
+    prev = None
+    slow = head
+    fast = head
+    while fast != None and fast.next != None:
+        prev = slow
+        slow = slow.next
+        fast = fast.next.next
+    prev.next = slow.next
+    return head
+
+
+# printLinkedList(delete_middle_elem(head))
+# print(delete_middle_elem(head))
+
+
+# Delete a Node in Single Linked List
+def delete_Node(head, x):
+    cur = head
+    c = 1
+    if c == x:
+        return cur.next
+    else:
+        while cur:
+            if c == x - 1:
+                break
+            c += 1
+            cur = cur.next
+        cur.next = cur.next.next
+        return head
+
+
+printLinkedList(delete_Node(head, 3))
