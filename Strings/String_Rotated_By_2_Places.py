@@ -5,8 +5,6 @@ b = "azonam"
 if len(a) != len(b):
     print("NO")
 
-if sorted(a) == sorted(b):
-    print("Yes")
 
-# for i in range(2):
-#     # if(a)
+print(a[2 : len(a)] + a[0:2])
+print(a[len(a) - 2 : len(a)] + a[0 : len(a) - 2])
