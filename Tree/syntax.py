@@ -34,10 +34,12 @@ def depth_of_binary_tree(root):
     return 1 + max(depth_of_binary_tree(root.left), depth_of_binary_tree(root.right))
 
 
-def level_of_key(root, key):
+def level_of_key(root):
 
-    if root.data == key:
-        return "yes"
+    if root == None:
+        return 1
+
+    return 1 + max(level_of_key(root.left), level_of_key(root.right))
 
 
 def serach_node(root, key):
@@ -65,8 +67,11 @@ if __name__ == "__main__":
     print("In-order traversal of the tree:")
     inorder_traversal(root)
     print()
-    print("Depth:")
-    print(depth_of_binary_tree(root))
+    # print("Depth:")
+    # print(depth_of_binary_tree(root))
+    # print()
+    # print("Search")
+    # print(serach_node(root, 100))
+
     print()
-    print("Search")
-    print(serach_node(root, 100))
+    print(level_of_key(root))
