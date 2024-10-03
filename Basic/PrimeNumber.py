@@ -11,3 +11,5 @@ if c == 1:
     print("No prime")
 else:
     print("prime")
+
+print(n**0.5)
